@@ -2,6 +2,8 @@ import React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import Course from '../components/Course'
+import HeaderBlock from '../components/Header';
+import TabNaviBottom from '../components/TabNaviBottom';
 
 const GET_COURSES = gql`
 query{
@@ -28,6 +30,8 @@ const Courses = () => (
             console.log(data);
             return (
                 <div>
+                    <HeaderBlock/>
+                    <div>
                     {data.Kurse.map((element)=>(
                         <Course key={element.key} name={element.displayName} description={element.description}/>
                     ))}
@@ -35,6 +39,8 @@ const Courses = () => (
                     {data.Veranstaltungen.map((element)=>(
                         <Course key={element.id} name={element.name}/>
                     ))}
+                    </div>
+                    <TabNaviBottom/>
                 </div>
             )
         }}
