@@ -26,28 +26,28 @@ const Courses = () => (
     <Query query={GET_COURSES}>
         {({ loading, error, data }) => {
             if (loading) return (
-            <div>
-                <HeaderBlock title="Kurse"/>
                 <div>
-                    Kurse werden geladen...
+                    <HeaderBlock title="Kurse"/>
+                    <div>
+                        Kurse werden geladen...
+                    </div>
+                    <TabNaviBottom/>
                 </div>
-                <TabNaviBottom activeItem="courses"/>
-            </div>
             );
             if (error) return <div>Error :(</div>;
             return (
                 <div>
                     <HeaderBlock title="Kurse"/>
-                    <div className="main">
-                    {data.Kurse.map((element)=>(
-                        <Course key={element.key} name={element.displayName} description={element.description} color="blue"/>
-                    ))}
+                    <div>
+                        {data.Kurse.map((element)=>(
+                            <Course key={element.key} name={element.displayName} description={element.description} color="blue"/>
+                        ))}
 
-                    {data.Veranstaltungen.map((element)=>(
-                        <Course key={element.id} name={element.name} color="green"/>
-                    ))}
+                        {data.Veranstaltungen.map((element)=>(
+                            <Course key={element.id} name={element.name} color="green"/>
+                        ))}
                     </div>
-                    <TabNaviBottom activeItem="courses"/>
+                    <TabNaviBottom/>
                 </div>
             )
         }}

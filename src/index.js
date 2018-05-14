@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import App from './App';
+import 'semantic-ui-css/semantic.min.css';
 
 const client = new ApolloClient({ uri: 'https://flexigraphql.herokuapp.com/' });
 

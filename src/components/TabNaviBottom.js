@@ -1,31 +1,43 @@
-import React, { Component } from 'react'
-import { Icon, Menu } from 'semantic-ui-react'
+import React, {Component} from 'react'
+import {Icon, Menu} from 'semantic-ui-react'
+import {Link,Redirect } from 'react-router-dom'
 
 export default class TabNaviBottom extends Component {
-  state = { activeItem: 'university' }
+    state = {
+        activeItem: this.props.activeItem,
+        redirect: false
+    };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleItemClick = (e, {name}) => this.setState({
+        activeItem: name,
+        redirect: true
+    });
 
-  render() {
-    const { activeItem } = this.state
+    render() {
+        const {activeItem} = this.state;
+        if (this.state.redirect) {
+            this.state.redirect=false;
+            return <Redirect push to={activeItem} />;
+        }
+        return (
+            <Menu icon='labeled' borderless compact fixed='bottom' size='tiny'>
 
-    return (
-      <Menu icon='labeled' borderless compact fixed='bottom' size='tiny'>
-        <Menu.Item name='rss' active={activeItem === 'rss'} onClick={this.handleItemClick}>
-          <Icon name='rss' />
-          News
-        </Menu.Item>
+                    <Menu.Item name='news' active={activeItem === 'news'} onClick={this.handleItemClick}>
+                        <Icon name='rss'/>
+                        News
+                    </Menu.Item>
 
-        <Menu.Item name='university' active={activeItem === 'university'} onClick={this.handleItemClick}>
-          <Icon name='university' />
-          Kurse
-        </Menu.Item>
+                    <Menu.Item name='courses' active={activeItem === 'courses'} onClick={this.handleItemClick}>
+                        <Icon name='university'/>
+                        Kurse
+                    </Menu.Item>
 
-        <Menu.Item name='user' active={activeItem === 'user'} onClick={this.handleItemClick}>
-          <Icon name='user' />
-          Profil
-        </Menu.Item>
-      </Menu>
-    )
-  }
+                    <Menu.Item name='profile' active={activeItem === 'profile'} onClick={this.handleItemClick}>
+                        <Icon name='user'/>
+                        Profil
+                    </Menu.Item>
+
+            </Menu>
+        )
+    }
 }

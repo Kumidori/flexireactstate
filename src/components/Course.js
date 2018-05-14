@@ -3,20 +3,12 @@ import PropTypes from 'prop-types';
 import {Card, Icon} from 'semantic-ui-react';
 
 function Course(props) {
-    console.log(props);
-    const items = [
-        {
-          header: props.name,
-          description: props.description,
-          meta: '',
-        }
-    ]
-    
+
     return (
         <div>
             <Card className='course' centered>
                 <Card.Content>
-                <Icon name='circle' color='blue' size='small'/>
+                <Icon name='circle' color={props.color} size='small'/>
                     {props.name}
                 </Card.Content>
             </Card>
