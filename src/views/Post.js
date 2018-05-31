@@ -5,8 +5,8 @@ import { Query } from 'react-apollo';
 import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
-
-
+import SubNavi from '../components/SubNavi';
+import {Card} from 'semantic-ui-react';
 
 
 
@@ -35,6 +35,7 @@ const Post = (props) => (
             if (loading) return (
             <div>
                 <HeaderBlock title="Forum"/>
+                <SubNavi activeItem="forum"/>
                 <div>
                     Forumseinträge werden geladen...
                 </div>
@@ -46,13 +47,17 @@ const Post = (props) => (
             return (
                 <div>
                     <HeaderBlock title="Forum"/>
-                    <div className="main">
+                    <SubNavi activeItem="forum"/>
+                    <div>
                     {data.Postings.map((element)=>(
                         <div>
-                            <div>{element.title}</div>
-                            <div>{element.key}</div>
+                        <Card className='post' centered>
+                            <Card.Content>
+                            <Card.Header>{element.title}</Card.Header>
                             <div dangerouslySetInnerHTML={{ __html: element.body }}/>
-                            <div>{element.author}</div>
+                            <Card.Description>Autor: {element.author}</Card.Description>
+                            </Card.Content>
+                        </Card>
                         </div>
                     ))}
                     </div>

@@ -4,7 +4,8 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
-
+import SubNavi from '../components/SubNavi';
+import {Icon, Card} from 'semantic-ui-react';
 
 
 
@@ -30,6 +31,7 @@ const Folder = (props) => (
             if (loading) return (
             <div>
                 <HeaderBlock title="Kurse"/>
+                <SubNavi activeItem="dateien"/>
                 <div>
                     Kurse werden geladen...
                 </div>
@@ -41,12 +43,24 @@ const Folder = (props) => (
             return (
                 <div>
                     <HeaderBlock title="Dateien"/>
-                    <div className="main">
+                    <SubNavi activeItem="dateien"/>
+                    <div>
                     {data.Files.map((element)=>(
                         <div>
+                            
                             {
                                 element.size ?
-                                <a download href={element.href}>{element.title}</a>
+                                <div>
+                                <Card className='datei' centered>
+                                    <Card.Content>
+                                    <Icon name='file outline' className='file'/>
+                                    <Card.Header>
+                                    <a download href={element.href}>{element.title}</a>
+                                    </Card.Header>
+                                    <Card.Description>{element.size} Byte</Card.Description>
+                                    </Card.Content>
+                                </Card>
+                                </div>
                                 :
                                 <Link to={{
                                     pathname:"/Folder",
@@ -54,9 +68,15 @@ const Folder = (props) => (
                                         href:element.href
                                     }
                                     }}>
-                                <div>{element.title}</div>
+                                <Card className='datei' centered>
+                                    <Card.Content>
+                                    <Icon name='folder outline' className='folder'/>
+                                    <Card.Header>{element.title}</Card.Header>
+                                    </Card.Content>
+                                </Card>
                                 </Link>
                             }
+                            
                         </div>
                     ))}
                     </div>

@@ -4,7 +4,11 @@ import { Query } from 'react-apollo';
 import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import SubNavi from '../components/SubNavi';
+import Dateien from '../components/Dateien';
+import ForumKurs from '../components/ForumKurs';
+import Info from '../components/Info';
 
 
 const GET_SINGLE_COURSE = gql`
@@ -47,23 +51,11 @@ const DetailCourse = (props) => (
             if (error) return <div>Error :(</div>;
             return (
                 <div>
-                    <HeaderBlock/>
-                    <h1>Info</h1>
-                    <div>{data.Kurs.displayName}</div>
-                    <div>{data.Kurs.authors}</div>
-                    <div>{data.Kurs.description}</div>
-                    <h1>Dateien</h1>
-                    <Link to={`/courses/${props.match.params.id}/files/${data.Folders.courseNodeId}`}>
-                    <div>{data.Folders.detailsName}</div>
-                    <div>{data.Folders.courseNodeId}</div>
-                    <div>{data.Folders.name}</div>
-                    </Link>
-                    <h1>Forum</h1>
-                    <Link to={`/courses/${props.match.params.id}/forum/${data.Forum.courseNodeId}`}>
-                    <div>{data.Forum.detailsName}</div>
-                    <div>{data.Forum.courseNodeId}</div>
-                    <div>{data.Forum.subscribed}</div>
-                    </Link>
+                    <HeaderBlock title={data.Kurs.displayName}/>
+                    <SubNavi activeItem="dateien"/>
+                    <Dateien title={data.Folders.detailsName} id={data.Folders.courseNodeId} name={data.Folders.name} kursId={data.Kurs.key}/>
+                    <ForumKurs id={data.Forum.courseNodeId} title={data.Forum.detailsName} sub={data.Forum.subscribed} kursId={data.Kurs.key}/>
+                    <Info title={data.Kurs.displayName} author={data.Kurs.authors} description={data.Kurs.description}/>
                     <TabNaviBottom/>
                 </div>
             )
