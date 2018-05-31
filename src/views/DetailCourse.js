@@ -9,6 +9,13 @@ import SubNavi from '../components/SubNavi';
 import Dateien from '../components/Dateien';
 import ForumKurs from '../components/ForumKurs';
 import Info from '../components/Info';
+import Files from "../views/Files";
+import Folder from "../views/Folder";
+import Post from "../views/Post";
+import Forum from "../views/Forum";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+
 
 
 const GET_SINGLE_COURSE = gql`
@@ -48,14 +55,37 @@ const DetailCourse = (props) => (
                     <TabNaviBottom/>
                 </div>
             );
-            if (error) return <div>Error :(</div>;
+            if (error) return <div>DetailCourse Error :(</div>;
             return (
                 <div>
                     <HeaderBlock title={data.Kurs.displayName}/>
-                    <SubNavi activeItem="dateien"/>
-                    <Dateien title={data.Folders.detailsName} id={data.Folders.courseNodeId} name={data.Folders.name} kursId={data.Kurs.key}/>
-                    <ForumKurs id={data.Forum.courseNodeId} title={data.Forum.detailsName} sub={data.Forum.subscribed} kursId={data.Kurs.key}/>
-                    <Info title={data.Kurs.displayName} author={data.Kurs.authors} description={data.Kurs.description}/>
+                    <SubNavi courseKey={data.Kurs.key} activeItem="dateien"/>
+                    <Switch>
+                    <Route
+                    exact path="/courses/:id/dateien"
+                    render={(props) => <Files {...props} data={data} />}
+                    />
+                    <Route
+                    exact path="/courses/:id/folder"
+                    render={(props) => <Folder {...props} data={data} />}
+                    />
+                    <Route
+                    exact path="/courses/:id"
+                    render={(props) => <Files {...props} data={data} />}
+                    />
+                    <Route
+                    exact path="/courses/:id/forum" 
+                    render={(props) => <Forum {...props} data={data} />}
+                    />
+                    <Route
+                    exact path="/courses/:id/post" 
+                    render={(props) => <Post {...props} data={data} />}
+                    />
+                    <Route
+                    exact path="/courses/:id/info"
+                    render={(props) => <Info {...props} data={data} />}
+                    />
+                    </Switch>
                     <TabNaviBottom/>
                 </div>
             )

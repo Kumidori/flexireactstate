@@ -17,7 +17,7 @@ export default class TabNaviBottom extends Component {
         const {activeItem} = this.state;
         if (this.state.redirect) {
             this.state.redirect=false;
-            return <Redirect replace to={"/"+activeItem} />;
+            return <Redirect push to={"/"+activeItem} />;
         }
         return (
             <Menu icon='labeled' borderless compact fixed='bottom' size='tiny'>

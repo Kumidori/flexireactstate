@@ -26,32 +26,29 @@ query Posts($courseKey: String, $courseNodeId: String) {
 const Forum = (props) => (
     <Query 
     query={GET_POSTS}
-    variables={{courseKey: props.match.params.id,courseNodeId: props.match.params.courseNodeId}}
+    variables={{courseKey: props.data.Kurs.key,courseNodeId: props.data.Forum.courseNodeId}}
 >
         {({ loading, error, data }) => {
             if (loading) return (
-            <div>
-                <HeaderBlock title="Forum"/>
-                <SubNavi activeItem="forum"/>
                 <div>
                     Forumseinträge werden geladen...
                 </div>
-                <TabNaviBottom activeItem="courses"/>
-            </div>
             );
-            if (error) return <div>Error :(</div>;
-                console.log(data);
+        
+            if (error) {
+                console.log(props.route.data);
+                console.log("test");
+            return <div>Forum Error :(</div>;
+            }
             return (
                 <div>
-                    <HeaderBlock title="Forum"/>
-                    <SubNavi activeItem="forum"/>
                     <div>
                     {data.Posts.map((element)=>(
                          <Link to={{
-                            pathname:"/Post",
+                            pathname:`/courses/${props.data.Kurs.key}/post`,
                             state:{
                                 courseKey: props.match.params.id,
-                                courseNodeId: props.match.params.courseNodeId,
+                                courseNodeId: props.data.Forum.courseNodeId,
                                 key: element.key
                             }
                             }}>
@@ -67,7 +64,6 @@ const Forum = (props) => (
                         </Link>
                     ))}
                     </div>
-                    <TabNaviBottom activeItem="courses"/>
                 </div>
             )
         }}

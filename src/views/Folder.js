@@ -29,21 +29,13 @@ const Folder = (props) => (
 >
         {({ loading, error, data }) => {
             if (loading) return (
-            <div>
-                <HeaderBlock title="Kurse"/>
-                <SubNavi activeItem="dateien"/>
                 <div>
-                    Kurse werden geladen...
+                    Dateien werden geladen...
                 </div>
-                <TabNaviBottom activeItem="courses"/>
-            </div>
             );
             if (error) return <div>Error :(</div>;
                 console.log(data);
             return (
-                <div>
-                    <HeaderBlock title="Dateien"/>
-                    <SubNavi activeItem="dateien"/>
                     <div>
                     {data.Files.map((element)=>(
                         <div>
@@ -63,7 +55,7 @@ const Folder = (props) => (
                                 </div>
                                 :
                                 <Link to={{
-                                    pathname:"/Folder",
+                                    pathname:`/courses/${props.data.Kurs.key}/folder`,
                                     state:{
                                         href:element.href
                                     }
@@ -80,8 +72,6 @@ const Folder = (props) => (
                         </div>
                     ))}
                     </div>
-                    <TabNaviBottom activeItem="courses"/>
-                </div>
             )
         }}
     </Query>

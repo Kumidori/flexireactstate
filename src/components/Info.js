@@ -11,9 +11,11 @@ const Info = (props) => {
                 <div>
                     <Card className='dateien' centered>
                         <Card.Content>
-                        <Card.Header>{props.title}</Card.Header>
-                        <div dangerouslySetInnerHTML={{ __html: props.author }}/>
-                        <Card.Description>{props.description}</Card.Description>
+                        <Card.Header>{props.data.Kurs.displayName}</Card.Header>
+                        <div dangerouslySetInnerHTML={{ __html: props.data.Kurs.authors }}/>
+                        <Card.Description>
+                        <div dangerouslySetInnerHTML={{ __html: props.data.Kurs.description }}/>
+                        </Card.Description>
                         </Card.Content>
                     </Card>
                 </div>

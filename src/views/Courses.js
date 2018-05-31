@@ -42,12 +42,14 @@ const Courses = () => (
                     <div className="main">
                     {data.Kurse.map((element)=>(
                         <Link key={element.key} to={`/courses/${element.key}/`}>
-                        <Course key={element.key} name={element.displayName} description={element.description} color="blue"/>
+                        <Course name={element.displayName} description={element.description} color="blue"/>
                         </Link>
                     ))}
 
                     {data.Veranstaltungen.map((element)=>(
-                        <Course key={element.id} name={element.name} color="green"/>
+                        <Link key={element.id} to={`/intracourses/${element.id}/`}>
+                        <Course name={element.name} color="green"/>
+                        </Link>
                     ))}
                     </div>
                     <TabNaviBottom activeItem="courses"/>

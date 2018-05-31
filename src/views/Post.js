@@ -34,20 +34,14 @@ const Post = (props) => (
         {({ loading, error, data }) => {
             if (loading) return (
             <div>
-                <HeaderBlock title="Forum"/>
-                <SubNavi activeItem="forum"/>
                 <div>
                     Forumseinträge werden geladen...
                 </div>
-                <TabNaviBottom activeItem="courses"/>
             </div>
             );
             if (error) return <div>Error :(</div>;
                 console.log(data);
             return (
-                <div>
-                    <HeaderBlock title="Forum"/>
-                    <SubNavi activeItem="forum"/>
                     <div>
                     {data.Postings.map((element)=>(
                         <div>
@@ -61,8 +55,6 @@ const Post = (props) => (
                         </div>
                     ))}
                     </div>
-                    <TabNaviBottom activeItem="courses"/>
-                </div>
             )
         }}
     </Query>

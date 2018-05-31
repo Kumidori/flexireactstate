@@ -22,28 +22,22 @@ query Files($key: String, $courseNodeId: String) {
 `;
 
 
-const Courses = (props) => (
+const Files = (props) => (
     <Query 
     query={GET_FILES}
-    variables={{key: props.match.params.id,courseNodeId: props.match.params.courseNodeId}}
+    variables={{key: props.data.Kurs.key,courseNodeId: props.data.Folders.courseNodeId}}
 >
         {({ loading, error, data }) => {
             if (loading) return (
-            <div>
-                <HeaderBlock title="Dateien"/>
-                <SubNavi activeItem="dateien"/>
+
                 <div>
-                    Kurse werden geladen...
+                    Dateien werden geladen...
                 </div>
-                <TabNaviBottom activeItem="courses"/>
-            </div>
             );
             if (error) return <div>Error :(</div>;
                 console.log(data);
             return (
                 <div>
-                    <HeaderBlock title="Dateien"/>
-                    <SubNavi activeItem="dateien"/>
                     <div>
                     {data.Files.map((element)=>(
                         <div>
@@ -63,7 +57,7 @@ const Courses = (props) => (
                                 </div>
                                 :
                                 <Link to={{
-                                    pathname:"/Folder",
+                                    pathname:`/courses/${props.data.Kurs.key}/folder`,
                                     state:{
                                         href:element.href
                                     }
@@ -82,11 +76,10 @@ const Courses = (props) => (
                         </div>
                     ))}
                     </div>
-                    <TabNaviBottom activeItem="courses"/>
                 </div>
             )
         }}
     </Query>
 );
 
-export default Courses;
+export default Files;
