@@ -4,26 +4,36 @@ import { Query } from 'react-apollo';
 import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
+import { Link } from 'react-router-dom'
 
-const GET_COURSES = gql`
-query{
-    Kurse(userId:"77725698") {
-    displayName,
-    authors,
-    description,
-    key
+
+const GET_SINGLE_COURSE = gql`
+query KursDetails($key:String){
+    Kurs(key:$key) {
+      displayName,
+      authors,
+      description,
+      key
+    }
+    Folders(courseKey:$key){
+      detailsName,
+      courseNodeId,
+      name
+    }
+    Forum(courseKey: $key) {
+      courseNodeId,
+      detailsName,
+      subscribed
+    }
   }
- Veranstaltungen{
-  name
-  short
-  id
-}
-}
 `;
 
 
-const Courses = () => (
-    <Query query={GET_COURSES}>
+const DetailCourse = (props) => (
+    <Query 
+        query={GET_SINGLE_COURSE}
+        variables={{key: props.match.params.id}}
+    >
         {({ loading, error, data }) => {
             if (loading) return (
                 <div>
@@ -37,16 +47,23 @@ const Courses = () => (
             if (error) return <div>Error :(</div>;
             return (
                 <div>
-                    <HeaderBlock title="Kurse"/>
-                    <div>
-                        {data.Kurse.map((element)=>(
-                            <Course key={element.key} name={element.displayName} description={element.description} color="blue"/>
-                        ))}
-
-                        {data.Veranstaltungen.map((element)=>(
-                            <Course key={element.id} name={element.name} color="green"/>
-                        ))}
-                    </div>
+                    <HeaderBlock/>
+                    <h1>Info</h1>
+                    <div>{data.Kurs.displayName}</div>
+                    <div>{data.Kurs.authors}</div>
+                    <div>{data.Kurs.description}</div>
+                    <h1>Dateien</h1>
+                    <Link to={`/courses/${props.match.params.id}/files/${data.Folders.courseNodeId}`}>
+                    <div>{data.Folders.detailsName}</div>
+                    <div>{data.Folders.courseNodeId}</div>
+                    <div>{data.Folders.name}</div>
+                    </Link>
+                    <h1>Forum</h1>
+                    <Link to={`/courses/${props.match.params.id}/forum/${data.Forum.courseNodeId}`}>
+                    <div>{data.Forum.detailsName}</div>
+                    <div>{data.Forum.courseNodeId}</div>
+                    <div>{data.Forum.subscribed}</div>
+                    </Link>
                     <TabNaviBottom/>
                 </div>
             )
@@ -54,4 +71,4 @@ const Courses = () => (
     </Query>
 );
 
-export default Courses;
+export default DetailCourse;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import Course from '../components/Course'
@@ -40,7 +41,9 @@ const Courses = () => (
                     <HeaderBlock title="Kurse"/>
                     <div className="main">
                     {data.Kurse.map((element)=>(
+                        <Link key={element.key} to={`/courses/${element.key}/`}>
                         <Course key={element.key} name={element.displayName} description={element.description} color="blue"/>
+                        </Link>
                     ))}
 
                     {data.Veranstaltungen.map((element)=>(
