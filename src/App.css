@@ -3,7 +3,7 @@
   width: 100%;
   height: 8%;
 }
-.menu a {
+.ui.tiny.borderless.compact.labeled.icon.bottom.fixed.menu a {
   margin-right: 15%;
 }
 .headerIcon {
@@ -11,6 +11,10 @@
 }
 .profileIcon {
   float: right;
+}
+.profilIcon {
+  margin-top: 21% !important;
+  margin-left: 38% !important;
 }
 .heading {
   padding-right: 4%;
@@ -30,4 +34,16 @@
 .main{
   margin-top:50px;
   padding-bottom: 50px;
+}
+a {
+  color: black !important;
+}
+.ui.secondary.pointing.menu {
+  margin-top: 15%;
+}
+.file, .folder {
+  float: left;
+}
+.subNavi a {
+  margin-right: 11% !important;
 }
