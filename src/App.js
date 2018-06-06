@@ -17,14 +17,13 @@ class App extends Component {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={News}/>
+                <Route exact path="/" component={NewLogin}/>
                 <Route exact path="/Post" component={Post}/>
                 <Route path="/courses/:id" component={DetailCourse}/>
                 <Route path="/intracourses/:id" component={IntraDetailCourse}/>
                 <Route exact path="/news" component={News}/>
                 <Route exact path="/courses" component={Courses}/>
                 <Route exact path="/profile" component={Profile}/>
-                <Route exact path="/login" component={NewLogin} />
             </Switch>
         </Router>
     );
