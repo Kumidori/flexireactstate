@@ -10,6 +10,7 @@ import Forum from './views/Forum'
 import Post from './views/Post'
 import Profile from './views/Profile'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import NewLogin from './components/NewLogin';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Route exact path="/news" component={News}/>
                 <Route exact path="/courses" component={Courses}/>
                 <Route exact path="/profile" component={Profile}/>
+                <Route exact path="/login" component={NewLogin} />
             </Switch>
         </Router>
     );
