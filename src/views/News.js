@@ -23,7 +23,7 @@ const News = () => (
         {({ loading, error, data }) => {
             if (loading) return (
                 <div>
-                    <HeaderBlock title="News"/>
+                    <HeaderBlock title="News" headerIcon='rss'/>
                     <div className="main">
                         News werden geladen...
                     </div>
@@ -33,7 +33,7 @@ const News = () => (
             if (error) return <div>Error :(</div>;
             return (
                 <div>
-                    <HeaderBlock title="News"/>
+                    <HeaderBlock title="News" headerIcon='rss'/>
                     <div className="main">
                         {data.News.map((element,index)=>(
                             <SingleNews key={index} title={element.title} message={element.message} date={element.date} time={element.time}/>
