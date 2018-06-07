@@ -1,6 +1,7 @@
 import React from 'react';
 import md5 from 'md5';
 import { Redirect } from 'react-router';
+import {Header} from 'semantic-ui-react';
 
 
 class NewLogin extends React.Component {
@@ -47,19 +48,22 @@ class NewLogin extends React.Component {
             return <Redirect push to="/news" />;
           }
       return (
-        
-        <form onSubmit={this.handleSubmit} >        
-          <label>
-            Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <label>
-            PW:
-            <input type="text" value={this.state.pw} onChange={this.handleChange2} />
-          </label>
-          <input type="submit" value="Login" />
+        <div>
+        <Header className="header-container" as='h3' textAlign='center' block>
+          <span className='heading'>FlexiLearn</span>
+        </Header>
+        <form class="ui form" onSubmit={this.handleSubmit} >        
+          <div class="field">
+          <label>Name</label>
+            <input type="text" name="Name" placeholder="Name" value={this.state.value} onChange={this.handleChange} />
+          </div>
+          <div class="field">
+          <label>Passwort</label>
+            <input type="password" name="pw" placeholder="Passwort" value={this.state.pw} onChange={this.handleChange2} />
+          </div>
+          <button class="ui button" type="submit" value="Login">Login</button>
         </form>
-        
+        </div>
       );
     }
   }
