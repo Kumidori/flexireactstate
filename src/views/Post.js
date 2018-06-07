@@ -7,7 +7,7 @@ import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
 import {Card, Icon} from 'semantic-ui-react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
 
 const GET_SINGLE_POST = gql`
 query Post($courseKey: String, $courseNodeId: String, $key: String) {
@@ -68,10 +68,6 @@ const Post = (props) => (
                             </div>
                           :
                           <div>
-                            <CSSTransitionGroup
-                                transitionName="posts"
-                                transitionEnterTimeout={500}
-                                transitionLeaveTimeout={300}>
                             <Card className='post' centered counter={counter++}>
                                 <Card.Content style={replyStyle}>
                                 <Icon name='comments outline' className='comment'/>
@@ -81,7 +77,7 @@ const Post = (props) => (
                                 </Card.Content>
                             </Card>
          
-                            </CSSTransitionGroup>
+                            
                           
                         </div>
                         

@@ -7,7 +7,7 @@ import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
 import {Card} from 'semantic-ui-react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
 
 var bodyStyle = {
     width: '280px'
