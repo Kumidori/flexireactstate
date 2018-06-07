@@ -18,12 +18,13 @@
 }
 .heading {
   padding-right: 4%;
+  text-align: center;
 }
 .ui.card {
   width: 100% !important;
 }
 .ui.block.header {
-  background: #4ea5fcad !important;
+  background: #7fbfff !important;
 }
 .header-container{
   position: fixed; /* Set the navbar to fixed position */
@@ -41,9 +42,52 @@ a {
 .ui.secondary.pointing.menu {
   margin-top: 15%;
 }
-.file, .folder {
+.file, .folder, .comment {
   float: left;
 }
 .subNavi a {
   margin-right: 11% !important;
+}
+.ui.card>.content>.description, .ui.cards>.card>.content>.description {
+  font-size: 0.9em !important;
+}
+.forumContent {
+  padding-left: 9% !important;
+}
+.forumHeader {
+  padding: 1em 1em 0.3em 1em !important;
+}
+#forum {
+  transition-timing-function: ease-in;
+  transition-duration: 5s;
+}
+#postings:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+.posts-enter {
+  opacity: 0.01;
+}
+
+.posts-enter.posts-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.posts-leave {
+  opacity: 1;
+}
+
+.posts-leave.posts-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+.replies {
+  float: right;
+}
+.author {
+  float: left;
+}
+.ui.form {
+  padding-top: 20%;
 }
