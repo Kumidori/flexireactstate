@@ -46,9 +46,9 @@ const Folder = (props) => (
                                 <Card className='datei' centered>
                                     <Card.Content>
                                     <Icon name='file outline' className='file'/>
-                                    <Card.Header>
+                                    
                                     <a download href={element.href}>{element.title}</a>
-                                    </Card.Header>
+                                   
                                     <Card.Description>{element.size} Byte</Card.Description>
                                     </Card.Content>
                                 </Card>
@@ -63,7 +63,7 @@ const Folder = (props) => (
                                 <Card className='datei' centered>
                                     <Card.Content>
                                     <Icon name='folder outline' className='folder'/>
-                                    <Card.Header>{element.title}</Card.Header>
+                                    {element.title}
                                     </Card.Content>
                                 </Card>
                                 </Link>

@@ -17,6 +17,9 @@ componentWillMount() {
   
   render() {
     const { activeItem } = this.state
+    const firstItem = {
+      paddingLeft: '8%'
+    };
     if (this.state.redirect) {
       this.state.redirect=false;
       if(this.state.intranet){
@@ -32,7 +35,7 @@ componentWillMount() {
       <div>
         <Menu pointing secondary className='subNavi'>
         
-          <Menu.Item name='dateien' active={activeItem === 'dateien'} onClick={this.handleItemClick} />
+          <Menu.Item name='dateien' active={activeItem === 'dateien'} onClick={this.handleItemClick} style={firstItem}/>
         
         
           <Menu.Item name='forum' active={activeItem === 'forum'} onClick={this.handleItemClick} />

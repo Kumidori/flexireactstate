@@ -6,8 +6,7 @@ import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
-import {Card} from 'semantic-ui-react';
-
+import {Card, Icon} from 'semantic-ui-react';
 
 
 const GET_SINGLE_POST = gql`
@@ -20,7 +19,15 @@ query Post($courseKey: String, $courseNodeId: String, $key: String) {
       }
    }
 `;
-
+var contentStyle = {
+    borderLeft: '2px solid #3e3e3e',
+  };
+  var replyStyle = {
+      paddingLeft: '8%'
+  };
+  var headline = {
+      fontWeight: 500
+  };
 
 const Post = (props) => (
     <Query 
@@ -41,17 +48,42 @@ const Post = (props) => (
             );
             if (error) return <div>Error :(</div>;
                 console.log(data);
+                
             return (
-                    <div>
-                    {data.Postings.map((element)=>(
+                    <div id='postings'>
+                    {data.Postings.map((element, counter=0)=>(
                         <div>
-                        <Card className='post' centered>
-                            <Card.Content>
-                            <Card.Header>{element.title}</Card.Header>
-                            <div dangerouslySetInnerHTML={{ __html: element.body }}/>
-                            <Card.Description>Autor: {element.author}</Card.Description>
-                            </Card.Content>
-                        </Card>
+                          
+                          {
+                              counter<1 ?
+                              <div>
+                            <Card className='post' centered>
+                              <Card.Content style={contentStyle}>
+                              <Icon name='comment outline' className='comment'/>
+                              <Card.Header>{element.title}</Card.Header>
+                              <div dangerouslySetInnerHTML={{ __html: element.body }} />
+                              <Card.Description>Autor: {element.author}</Card.Description>
+                              </Card.Content>
+                            </Card>
+                            </div>
+                          :
+                          <div>
+                            <Card className='post' centered counter={counter++}>
+                                <Card.Content style={replyStyle}>
+                                <Icon name='comments outline' className='comment'/>
+                                <Card.Header style={headline}>{element.title}</Card.Header>
+                                <div dangerouslySetInnerHTML={{ __html: element.body }} />
+                                <Card.Description>Autor: {element.author}</Card.Description>
+                                </Card.Content>
+                            </Card>
+         
+                            
+                          
+                        </div>
+                        
+                          }
+                        
+                         
                         </div>
                     ))}
                     </div>

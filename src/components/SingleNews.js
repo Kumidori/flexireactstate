@@ -2,10 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Card, Icon} from 'semantic-ui-react';
 
-function SingleNews(props) {
 
+
+function SingleNews(props) {
     return (
         <div>
+            {
+                props.message.includes('_') ?
+                <div>
+                
+            </div>
+                
+            :
+            <div>
             <Card className='course' centered>
                 <Card.Content>
                     <Card.Header>{props.title}</Card.Header>
@@ -14,6 +23,8 @@ function SingleNews(props) {
                 </Card.Content>
 
             </Card>
+            </div>
+            }
         </div>
     );
 }

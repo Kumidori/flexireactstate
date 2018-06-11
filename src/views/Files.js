@@ -36,25 +36,43 @@ const Files = (props) => (
             );
             if (error) return <div>Error :(</div>;
                 console.log(data);
+                const fileTitle = data.Files['0'].title.split('Cross');
+                const filetitle = fileTitle['1'].split('A');
+                console.log(filetitle['0']);
             return (
                 <div>
                     <div>
                     {data.Files.map((element)=>(
+                        
                         <div>
                             
-                            {
-                                element.size ?
+                            {  element.size ?
+                                
+                                element.title.includes('_')  ?
                                 <div>
                                 <Card className='datei' centered>
                                     <Card.Content>
                                     <Icon name='file outline' className='file'/>
-                                    <Card.Header>
-                                    <a download href={element.href}>{element.title}</a>
-                                    </Card.Header>
+                                   
+                                    <a download href={element.href}>{fileTitle['0']}<br/>{filetitle['0']}<br/>{filetitle['1']}</a>
+                                    
                                     <Card.Description>{element.size} Byte</Card.Description>
                                     </Card.Content>
                                 </Card>
                                 </div>
+                                :
+                                <div>
+                                <Card className='datei' centered>
+                                    <Card.Content>
+                                    <Icon name='file outline' className='file'/>
+                                   
+                                    <a download href={element.href}>{element.title}</a>
+                                    
+                                    <Card.Description>{element.size} Byte</Card.Description>
+                                    </Card.Content>
+                                </Card>
+                                </div>
+                                
                                 :
                                 <Link to={{
                                     pathname:`/courses/${props.data.Kurs.key}/folder`,
@@ -65,11 +83,10 @@ const Files = (props) => (
                                 <Card className='datei' centered>
                                     <Card.Content>
                                     <Icon name='folder outline' className='folder'/>
-                                    <Card.Header>{element.title}</Card.Header>
+                                    {element.title}
                                     </Card.Content>
                                 </Card>
                                 </Link>
-                                
                             }
                             
                             

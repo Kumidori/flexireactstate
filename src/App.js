@@ -10,13 +10,14 @@ import Forum from './views/Forum'
 import Post from './views/Post'
 import Profile from './views/Profile'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import NewLogin from './components/NewLogin';
 
 class App extends Component {
   render() {
     return (
         <Router>
             <Switch>
-                <Route exact path="/" component={News}/>
+                <Route exact path="/" component={NewLogin}/>
                 <Route exact path="/Post" component={Post}/>
                 <Route path="/courses/:id" component={DetailCourse}/>
                 <Route path="/intracourses/:id" component={IntraDetailCourse}/>
