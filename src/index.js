@@ -12,8 +12,9 @@ const client = new ApolloClient({
         const intrapassword = "978c447b32798766c3f1d79b3c75cd1c"
         operation.setContext({
         headers: {
-            username,
-            intrapassword
+            username: sessionStorage.getItem('username'),
+            intrapassword: sessionStorage.getItem('intrapassword'),
+            newslink: sessionStorage.getItem('newslink')
         }
         });
     },

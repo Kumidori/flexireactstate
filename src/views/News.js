@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import SingleNews from '../components/SingleNews'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
+import { Link } from 'react-router-dom'
 
 const GET_News = gql`
 query{
@@ -30,7 +31,16 @@ const News = () => (
                     <TabNaviBottom activeItem="news"/>
                 </div>
             );
-            if (error) return <div>Error :(</div>;
+            if (error) return (
+                <div>
+                    <HeaderBlock title="News" headerIcon='rss'/>
+                    <div className="main">
+                        News konnten nicht geladen werden, haben sie die RSS Feed URL korrekt eingegeben?
+                    </div>
+                    <Link to={`/`}>zurück zum Login</Link>
+                    <TabNaviBottom activeItem="news"/>
+                </div>
+            );
             return (
                 <div>
                     <HeaderBlock title="News" headerIcon='rss'/>

@@ -35,7 +35,16 @@ const Courses = () => (
                 <TabNaviBottom activeItem="courses"/>
             </div>
             );
-            if (error) return <div>Error :(</div>;
+            if (error) return (
+                <div>
+                    <HeaderBlock title="Kurse" headerIcon='rss'/>
+                    <div className="main">
+                        Kurse konnten nicht geladen werden, haben sie ihre Login-Daten korrekt eingegeben?
+                    </div>
+                    <Link to={`/`}>zurück zum Login</Link>
+                    <TabNaviBottom activeItem="courses"/>
+                </div>
+            );
             return (
                 <div>
                     <HeaderBlock title="Kurse"/>

@@ -54,7 +54,7 @@ const Files = (props) => (
                                     <Card.Content>
                                     <Icon name='file outline' className='file'/>
                                    
-                                    <a download href={element.href}>{fileTitle['0']}<br/>{filetitle['0']}<br/>{filetitle['1']}</a>
+                                    <a target="_blank" href={element.href}>{fileTitle['0']}<br/>{filetitle['0']}<br/>{filetitle['1']}</a>
                                     
                                     <Card.Description>{element.size} Byte</Card.Description>
                                     </Card.Content>
@@ -66,7 +66,7 @@ const Files = (props) => (
                                     <Card.Content>
                                     <Icon name='file outline' className='file'/>
                                    
-                                    <a download href={element.href}>{element.title}</a>
+                                    <a target="_blank" href={element.href}>{element.title}</a>
                                     
                                     <Card.Description>{element.size} Byte</Card.Description>
                                     </Card.Content>

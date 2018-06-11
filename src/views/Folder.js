@@ -47,7 +47,7 @@ const Folder = (props) => (
                                     <Card.Content>
                                     <Icon name='file outline' className='file'/>
                                     
-                                    <a download href={element.href}>{element.title}</a>
+                                    <a target="_self" href={element.href}>{element.title}</a>
                                    
                                     <Card.Description>{element.size} Byte</Card.Description>
                                     </Card.Content>

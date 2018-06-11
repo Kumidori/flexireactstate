@@ -64,7 +64,7 @@ const Forum = (props) => (
             return (
                 <div id='forum'>
                     <div>
-                    {data.Posts.map((element)=>(
+                    {data.Posts.slice(0).reverse().map((element)=>(
                         
                          <Link to={{
                             pathname:`/courses/${props.data.Kurs.key}/post`,

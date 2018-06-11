@@ -46,7 +46,7 @@ const IntraFiles = (props) => (
                             <Card.Content>
                             <Icon name='file outline' className='file'/>
                             <Card.Header>
-                            <a download href={element.link}>{element.title}</a>
+                            <a target="_blank" href={element.link}>{element.title}</a>
                             </Card.Header>
                             <Card.Description>{element.size} Byte</Card.Description>
                             </Card.Content>

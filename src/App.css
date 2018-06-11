@@ -1,4 +1,15 @@
+body,div,a{
+  -ms-word-break: break-all;
+  word-break: break-all;
 
+/* Non standard for webkit */
+   word-break: break-word;
+
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
 .menu {
   width: 100%;
   height: 8%;

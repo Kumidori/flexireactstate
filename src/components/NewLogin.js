@@ -10,13 +10,14 @@ class NewLogin extends React.Component {
       this.state = {
           value:'',
           pw:'',
+          newslink:'',
           redirect:''
-          
       };
   
   
       this.handleChange = this.handleChange.bind(this);
       this.handleChange2 = this.handleChange2.bind(this);
+      this.handleChange3 = this.handleChange3.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     
     }
@@ -26,17 +27,18 @@ class NewLogin extends React.Component {
     }
 
     handleChange2(event) {
-        this.setState({pw: event.target.value});
-        
-      }
+      this.setState({pw: event.target.value});
+    }
+    handleChange3(event) {
+      this.setState({newslink: event.target.value});
+    }
   
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value + 'A pw was submitted: '+ this.state.pw );
       event.preventDefault();
-      
       sessionStorage.setItem('username', this.state.value);
-      sessionStorage.setItem('pw', md5(this.state.pw));
-      this.setState({value:'',pw:''});
+      sessionStorage.setItem('intrapassword', md5(this.state.pw));
+      sessionStorage.setItem('newslink', this.state.newslink);
+      this.setState({value:'',pw:'',newslink:''});
       this.setState({redirect: true});
       
     
@@ -60,6 +62,10 @@ class NewLogin extends React.Component {
           <div class="field">
           <label>Passwort</label>
             <input type="password" name="pw" placeholder="Passwort" value={this.state.pw} onChange={this.handleChange2} />
+          </div>
+          <div class="field">
+          <label>Felix RSS FEED URL</label>
+            <input type="text" name="newslink" placeholder="RSS URL" value={this.state.newslink} onChange={this.handleChange3} />
           </div>
           <button class="ui button" type="submit" value="Login">Login</button>
         </form>
