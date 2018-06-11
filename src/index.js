@@ -5,7 +5,19 @@ import { ApolloProvider } from 'react-apollo';
 import App from './App';
 import 'semantic-ui-css/semantic.min.css';
 
-const client = new ApolloClient({ uri: 'https://flexigraphql.herokuapp.com/' });
+const client = new ApolloClient({
+    uri: 'https://flexigraphql2.herokuapp.com/graphql',
+    request: async (operation) => {
+        const username = "weingaen";
+        const intrapassword = "978c447b32798766c3f1d79b3c75cd1c"
+        operation.setContext({
+        headers: {
+            username,
+            intrapassword
+        }
+        });
+    },
+    });
 
 const ApolloApp = AppComponent => (
     <ApolloProvider client={client}>
