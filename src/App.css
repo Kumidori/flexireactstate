@@ -10,6 +10,15 @@ body,div,a{
       -ms-hyphens: auto;
           hyphens: auto;
 }
+.all-center{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: -webkit-translate(-50%, -50%);
+    transform: -moz-translate(-50%, -50%);
+    transform: -ms-translate(-50%, -50%);
+}
 .menu {
   width: 100%;
   height: 8%;

@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
+import loader from '../loader.gif'
 
 const GET_COURSES = gql`
 query{
@@ -29,8 +30,8 @@ const Courses = () => (
             if (loading) return (
             <div>
                 <HeaderBlock title="Kurse"/>
-                <div>
-                    Kurse werden geladen...
+                <div className='all-center'>
+                <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
                 </div>
                 <TabNaviBottom activeItem="courses"/>
             </div>

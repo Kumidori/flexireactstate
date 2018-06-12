@@ -7,6 +7,7 @@ import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
 import {Card, Icon} from 'semantic-ui-react';
+import loader from '../loader.gif'
 
 
 
@@ -31,9 +32,8 @@ const IntraFiles = (props) => (
 >
         {({ loading, error, data }) => {
             if (loading) return (
-
-                <div>
-                    Dateien werden geladen...
+                <div className='all-center'>
+                <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
                 </div>
             );
             if (error) return <div>Error :(</div>;

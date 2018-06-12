@@ -5,6 +5,7 @@ import SingleNews from '../components/SingleNews'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import { Link } from 'react-router-dom'
+import loader from '../loader.gif'
 
 const GET_News = gql`
 query{
@@ -25,8 +26,8 @@ const News = () => (
             if (loading) return (
                 <div>
                     <HeaderBlock title="News" headerIcon='rss'/>
-                    <div className="main">
-                        News werden geladen...
+                    <div className='all-center'>
+                    <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
                     </div>
                     <TabNaviBottom activeItem="news"/>
                 </div>

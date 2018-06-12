@@ -14,6 +14,7 @@ import Folder from "../views/Folder";
 import Post from "../views/Post";
 import Forum from "../views/Forum";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import loader from '../loader.gif'
 
 
 
@@ -49,8 +50,8 @@ const DetailCourse = (props) => (
             if (loading) return (
                 <div>
                     <HeaderBlock title="Kurse"/>
-                    <div>
-                        Kurse werden geladen...
+                    <div className='all-center'>
+                    <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
                     </div>
                     <TabNaviBottom/>
                 </div>
