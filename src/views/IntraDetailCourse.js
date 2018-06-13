@@ -40,7 +40,7 @@ const IntraDetailCourse = (props) => (
                 <div>
                     <HeaderBlock title="Kurse"/>
                     <div className='all-center'>
-                    <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
+                    <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                     </div>
                     <TabNaviBottom/>
                 </div>

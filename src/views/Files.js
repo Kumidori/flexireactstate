@@ -31,7 +31,7 @@ const Files = (props) => (
         {({ loading, error, data }) => {
             if (loading) return (
                 <div className='all-center'>
-                <img width="100" height="100" className="loader" src={loader} alt="loader"/>>
+                <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                 </div>
             );
             if (error) return <div>Error :(</div>;

@@ -77,10 +77,6 @@ a {
 .forumHeader {
   padding: 1em 1em 0.3em 1em !important;
 }
-#forum {
-  transition-timing-function: ease-in;
-  transition-duration: 5s;
-}
 #postings:first-child {
   border-left: none;
   padding-left: 0;
