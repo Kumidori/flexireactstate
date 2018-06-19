@@ -40,10 +40,7 @@ class NewLogin extends React.Component {
       sessionStorage.setItem('newslink', this.state.newslink);
       this.setState({value:'',pw:'',newslink:''});
       this.setState({redirect: true});
-      fetch(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`)
-      .then(function(response) {
-        console.log(response);
-      })
+      window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
     }
 
   
