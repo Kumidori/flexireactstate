@@ -1,18 +1,14 @@
 import React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
-import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import { Link } from 'react-router-dom';
 import SubNavi from '../components/SubNavi';
-import Dateien from '../components/Dateien';
-import ForumKurs from '../components/ForumKurs';
 import IntraInfo from '../components/IntraInfo';
 import IntraFiles from "../views/IntraFiles";
-import Folder from "../views/Folder";
-import Post from "../views/Post";
-import Forum from "../views/Forum";
+import IntraForum from "../views/IntraForum";
+import IntraPost from "../views/IntraPost";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import loader from '../loader.gif'
 
@@ -62,6 +58,14 @@ const IntraDetailCourse = (props) => (
                     <Route
                     exact path="/intracourses/:id/info"
                     render={(props) => <IntraInfo {...props} data={data} />}
+                    />
+                     <Route
+                    exact path="/intracourses/:id/forum"
+                    render={(props) => <IntraForum {...props} data={data} />}
+                    />
+                     <Route
+                    exact path="/intracourses/:id/post" 
+                    render={(props) => <IntraPost {...props} data={data} />}
                     />
                     </Switch>
                     <TabNaviBottom/>
