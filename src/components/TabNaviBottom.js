@@ -20,7 +20,7 @@ export default class TabNaviBottom extends Component {
             return <Redirect push to={"/"+activeItem} />;
         }
         return (
-            <Menu icon='labeled' borderless compact fixed='bottom' size='tiny'>
+            <Menu icon='labeled' borderless compact fixed='bottom' size='tiny' widths='3'>
 
                     <Menu.Item name='news' active={activeItem === 'news'} onClick={this.handleItemClick}>
                         <Icon name='rss'/>

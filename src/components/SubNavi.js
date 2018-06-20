@@ -33,12 +33,12 @@ componentWillMount() {
   }
     return (
       <div>
-        <Menu pointing secondary className='subNavi'>
+        <Menu pointing secondary className='subNavi' widths='3'>
         
           <Menu.Item name='dateien' active={activeItem === 'dateien'} onClick={this.handleItemClick} style={firstItem}/>
         
         
-          <Menu.Item name='forum' active={activeItem === 'forum'} onClick={this.handleItemClick} />
+          <Menu.Item name='forum' active={activeItem === 'forum'} onClick={this.handleItemClick} style={firstItem}/>
         
           <Menu.Item name='info' active={activeItem === 'info'} onClick={this.handleItemClick} />
         
