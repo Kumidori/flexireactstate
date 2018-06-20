@@ -49,7 +49,7 @@ const DetailCourse = (props) => (
         {({ loading, error, data }) => {
             if (loading) return (
                 <div>
-                    <HeaderBlock title="Kurse"/>
+                    <HeaderBlock title="Kurse" headerIcon='university'/>
                     <div className='all-center'>
                     <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                     </div>
@@ -59,7 +59,7 @@ const DetailCourse = (props) => (
             if (error) return <div>DetailCourse Error :(</div>;
             return (
                 <div>
-                    <HeaderBlock title={data.Kurs.displayName}/>
+                    <HeaderBlock title={data.Kurs.displayName} headerIcon='university'/>
                     <SubNavi courseKey={data.Kurs.key} activeItem="dateien"/>
                     <Switch>
                     <Route

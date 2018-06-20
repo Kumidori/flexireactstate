@@ -5,7 +5,8 @@ import SingleNews from '../components/SingleNews'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import { Link } from 'react-router-dom'
-import loader from '../loader.gif'
+import loader from '../loader.gif';
+import {Message} from 'semantic-ui-react';
 
 const GET_News = gql`
 query{
@@ -35,10 +36,10 @@ const News = () => (
             if (error) return (
                 <div>
                     <HeaderBlock title="News" headerIcon='rss'/>
-                    <div className="main">
-                        News konnten nicht geladen werden, haben sie die RSS Feed URL korrekt eingegeben?
-                    </div>
-                    <Link to={`/`}>zurück zum Login</Link>
+                    <Message className='main'>
+                        <p> News konnten nicht geladen werden, haben sie die RSS Feed URL korrekt eingegeben?</p>
+                    </Message>  
+                    <Link to={`/`}><button class="ui button">Zurück zum Login</button></Link>
                     <TabNaviBottom activeItem="news"/>
                 </div>
             );

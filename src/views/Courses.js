@@ -5,7 +5,8 @@ import { Query } from 'react-apollo';
 import Course from '../components/Course'
 import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
-import loader from '../loader.gif'
+import loader from '../loader.gif';
+import {Message} from 'semantic-ui-react';
 
 const GET_COURSES = gql`
 query{
@@ -29,7 +30,7 @@ const Courses = () => (
         {({ loading, error, data }) => {
             if (loading) return (
             <div>
-                <HeaderBlock title="Kurse"/>
+                <HeaderBlock title="Kurse" headerIcon='university'/>
                 <div className='all-center'>
                 <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                 </div>
@@ -38,17 +39,17 @@ const Courses = () => (
             );
             if (error) return (
                 <div>
-                    <HeaderBlock title="Kurse" headerIcon='rss'/>
-                    <div className="main">
-                        Kurse konnten nicht geladen werden, haben sie ihre Login-Daten korrekt eingegeben?
-                    </div>
-                    <Link to={`/`}>zurück zum Login</Link>
+                    <HeaderBlock title="Kurse" headerIcon='university'/>
+                    <Message className='main'>
+                        <p>Kurse konnten nicht geladen werden, haben sie ihre Login-Daten korrekt eingegeben?</p>
+                    </Message>
+                    <Link to={`/`}><button class="ui button">Zurück zum Login</button></Link>
                     <TabNaviBottom activeItem="courses"/>
                 </div>
             );
             return (
                 <div>
-                    <HeaderBlock title="Kurse"/>
+                    <HeaderBlock title="Kurse" headerIcon='university'/>
                     <div className="main">
                     {data.Kurse.map((element)=>(
                         <Link key={element.key} to={`/courses/${element.key}/`}>

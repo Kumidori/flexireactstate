@@ -7,8 +7,8 @@ import HeaderBlock from '../components/Header';
 import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
 import {Card, Icon} from 'semantic-ui-react';
-import loader from '../loader.gif'
-
+import loader from '../loader.gif';
+import {Message} from 'semantic-ui-react';
 
 
 
@@ -34,11 +34,9 @@ const Files = (props) => (
                 <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                 </div>
             );
-            if (error) return <div>Error :(</div>;
-                console.log(data);
-                const fileTitle = data.Files['0'].title.split('Cross');
-                const filetitle = fileTitle['1'].split('A');
-                console.log(filetitle['0']);
+            if (error) return (<Message>
+                <p>Zu diesem Kurs sind keine Dateien vorhanden</p>
+                </Message>);
             return (
                 <div>
                     <div>
@@ -48,19 +46,7 @@ const Files = (props) => (
                             
                             {  element.size ?
                                 
-                                element.title.includes('_')  ?
-                                <div>
-                                <Card className='datei' centered>
-                                    <Card.Content>
-                                    <Icon name='file outline' className='file'/>
-                                   
-                                    <a target="_blank" href={element.href}>{fileTitle['0']}<br/>{filetitle['0']}<br/>{filetitle['1']}</a>
-                                    
-                                    <Card.Description>{element.size} Byte</Card.Description>
-                                    </Card.Content>
-                                </Card>
-                                </div>
-                                :
+                                
                                 <div>
                                 <Card className='datei' centered>
                                     <Card.Content>
@@ -68,7 +54,7 @@ const Files = (props) => (
                                    
                                     <a target="_blank" href={element.href}>{element.title}</a>
                                     
-                                    <Card.Description>{element.size} Byte</Card.Description>
+                                    <Card.Description>{element.size}</Card.Description>
                                     </Card.Content>
                                 </Card>
                                 </div>
