@@ -8,7 +8,7 @@ import TabNaviBottom from '../components/TabNaviBottom';
 import SubNavi from '../components/SubNavi';
 import {Card} from 'semantic-ui-react';
 import loader from '../loader.gif'
-
+import {Message} from 'semantic-ui-react';
 
 var bodyStyle = {
     width: '280px'
@@ -37,11 +37,13 @@ const Forum = (props) => (
                 <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                 </div>
             );
-        
-            if (error) {
+            
+            if (error) { 
                 console.log(props.route.data);
                 console.log("test");
-            return <div>Forum Error :(</div>;
+                return <Message>
+                <p>Zu diesem Kurs sind keine Foreneinträge vorhanden</p>
+                </Message>;
                 
                 var str = data.Posts.body;
                 console.log(data);

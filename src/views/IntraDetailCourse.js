@@ -34,7 +34,7 @@ const IntraDetailCourse = (props) => (
         {({ loading, error, data }) => {
             if (loading) return (
                 <div>
-                    <HeaderBlock title="Kurse"/>
+                    <HeaderBlock title="Kurse" headerIcon='university'/>
                     <div className='all-center'>
                     <img width="100" height="100" className="loader" src={loader} alt="loader"/>
                     </div>
@@ -44,7 +44,7 @@ const IntraDetailCourse = (props) => (
             if (error) return <div>DetailCourse Error :(</div>;
             return (
                 <div>
-                    <HeaderBlock title={data.Veranstaltungsdetails.name}/>
+                    <HeaderBlock title={data.Veranstaltungsdetails.name} headerIcon='university'/>
                     <SubNavi courseKey={data.Veranstaltungsdetails.id} activeItem="dateien" intranet={true}/>
                     <Switch>
                     <Route

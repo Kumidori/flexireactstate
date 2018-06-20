@@ -24,13 +24,17 @@ body,div,a{
   height: 8%;
 }
 .ui.tiny.borderless.compact.labeled.icon.bottom.fixed.menu a {
-  margin-right: 15%;
+  margin-right: 20%;
 }
 .headerIcon {
   float: left;
+  position: relative;
+  left: 5%;
 }
 .profileIcon {
-  float: right;
+  position: absolute;
+  top: 22%;
+  right: 2%;
 }
 .profilIcon {
   margin-top: 21% !important;
@@ -53,7 +57,7 @@ body,div,a{
   z-index:999;
 }
 .main{
-  margin-top:50px;
+  margin-top:50px !important;
   padding-bottom: 50px;
 }
 a {
@@ -106,4 +110,13 @@ a {
 }
 .ui.form {
   padding-top: 20%;
+}
+.backIcon {
+  position: absolute;
+  top: 22%;
+  left: 0%;
+}
+@media only screen and (max-width: 376px) {
+  body{
+  width: 100%;}
 }

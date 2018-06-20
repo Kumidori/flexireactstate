@@ -11,11 +11,13 @@ import Post from './views/Post'
 import Profile from './views/Profile'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NewLogin from './components/NewLogin';
+import history from "./history.js";
+
 
 class App extends Component {
   render() {
     return (
-        <Router>
+        <Router history={history}>
             <Switch>
                 <Route exact path="/" component={NewLogin}/>
                 <Route exact path="/Post" component={Post}/>
