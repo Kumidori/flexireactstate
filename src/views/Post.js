@@ -52,7 +52,7 @@ const Post = (props) => (
             console.log(data);
 
             return (
-                <div id='postings'>
+                <div id='postings' className='main'>
                     {data.Postings.map((element, counter = 0) => (
                         <div>
 

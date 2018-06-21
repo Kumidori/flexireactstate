@@ -50,7 +50,7 @@ const IntraForum = (props) => (
             }
             return (
                 <div id='forum'>
-                    <div>
+                    <div className='main'>
                     {data.Veranstaltungsnachrichten.map((element)=>(
                         
                          <Link key={element.id} to={{

@@ -13,7 +13,7 @@ var headline = {
 
 const IntraPost = (props) => (
 (
-    <div id='postings'>
+    <div id='postings' className='main'>
         {props.location.state.content.map((element, counter = 0) => (
             <div>
                 {

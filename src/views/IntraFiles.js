@@ -43,8 +43,8 @@ const IntraFiles = (props) => (
             </Message>);
                 console.log(data);
             return (
-                <div>
-                    <div>
+                <div className='main'>
+                    <div >
                     {data.IntranetFiles.map((element)=>(                            
                         <Card className='datei' centered>
                             <Card.Content>

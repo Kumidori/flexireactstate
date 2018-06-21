@@ -53,13 +53,13 @@ const Courses = () => (
                     <div className="main">
                     {data.Kurse.map((element)=>(
                         <Link key={element.key} to={`/courses/${element.key}/`}>
-                        <Course name={element.displayName} description={element.description} color="blue"/>
+                        <Course name={element.displayName} description={element.description} className='felix'/>
                         </Link>
                     ))}
 
                     {data.Veranstaltungen.map((element)=>(
                         <Link key={element.id} to={`/intracourses/${element.id}/`}>
-                        <Course name={element.name} color="green"/>
+                        <Course name={element.name} className='intranet'/>
                         </Link>
                     ))}
                     </div>
