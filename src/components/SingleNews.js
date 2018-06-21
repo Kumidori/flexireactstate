@@ -7,13 +7,6 @@ import {Card, Icon} from 'semantic-ui-react';
 function SingleNews(props) {
     return (
         <div>
-            {
-                props.message.includes('_') ?
-                <div>
-                
-            </div>
-                
-            :
             <div>
             <Card className='course' centered>
                 <Card.Content>
@@ -24,7 +17,6 @@ function SingleNews(props) {
 
             </Card>
             </div>
-            }
         </div>
     );
 }

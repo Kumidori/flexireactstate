@@ -8,7 +8,7 @@ import {Card} from 'semantic-ui-react';
 
 const Info = (props) => {
             return (
-                <div>
+                <div className='main'>
                     <Card className='dateien' centered>
                         <Card.Content>
                         <Card.Header>{props.data.Veranstaltungsdetails.name}</Card.Header>
