@@ -19,7 +19,7 @@ class App extends Component {
     return (
         <Router history={history}>
             <Switch>
-                <Route exact path="/" component={NewLogin}/>
+                <Route exact path="/" component={Profile}/>
                 <Route exact path="/Post" component={Post}/>
                 <Route path="/courses/:id" component={DetailCourse}/>
                 <Route path="/intracourses/:id" component={IntraDetailCourse}/>

@@ -14,7 +14,7 @@ const client = new ApolloClient({
         headers: {
             username: sessionStorage.getItem('username'),
             intrapassword: sessionStorage.getItem('intrapassword'),
-            newslink: sessionStorage.getItem('newslink')
+            newslink: localStorage.getItem('newslink')
         }
         });
     },

@@ -29,7 +29,7 @@ query Posts($courseKey: String, $courseNodeId: String) {
 const Forum = (props) => (
     <Query 
     query={GET_POSTS}
-    variables={{courseKey: props.data.Kurs.key,courseNodeId: props.data.Forum.courseNodeId}}
+    variables={{courseKey: props.data.Kurs.key,courseNodeId: props.data.Forum==null ? "" : props.data.Forum.courseNodeId}}
 >
         {({ loading, error, data }) => {
             if (loading) return (
@@ -39,8 +39,6 @@ const Forum = (props) => (
             );
             
             if (error) { 
-                console.log(props.route.data);
-                console.log("test");
                 return <Message>
                 <p>Zu diesem Kurs sind keine Foreneinträge vorhanden</p>
                 </Message>;

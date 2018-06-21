@@ -10,6 +10,9 @@ body,div,a{
       -ms-hyphens: auto;
           hyphens: auto;
 }
+.rss-link{
+  text-decoration: underline;
+}
 .all-center{
     position: fixed;
     top: 30%;

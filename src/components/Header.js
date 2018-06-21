@@ -25,7 +25,6 @@ render() {
       <Icon name='angle left' className='backIcon' onClick={() => history.goBack()}/>
       <Icon name={this.props.headerIcon} className='headerIcon'/>
         <span className='heading'>{this.props.title}</span>
-      <Icon name='user circle outline' className='profileIcon'/>
       </Header>
       </div>
       :
@@ -34,7 +33,6 @@ render() {
       <Icon name='angle left' className='backIcon' onClick={() => history.goBack()}/>
       <Icon name={this.props.headerIcon} className='headerIcon'/>
         <span className='heading'>{this.props.title}</span>
-      <Icon name='user circle outline' className='profileIcon'/>
       </Header>
       </div>
     );

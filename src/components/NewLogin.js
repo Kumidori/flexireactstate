@@ -18,8 +18,7 @@ class NewLogin extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleChange2 = this.handleChange2.bind(this);
       this.handleChange3 = this.handleChange3.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    
+      this.handleSubmit = this.handleSubmit.bind(this);    
     }
   
     handleChange(event) {
@@ -40,14 +39,12 @@ class NewLogin extends React.Component {
       sessionStorage.setItem('newslink', this.state.newslink);
       this.setState({value:'',pw:'',newslink:''});
       this.setState({redirect: true});
-      window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
-    }
-
-  
+      //window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
+    }  
     render() {
-        if (this.state.redirect) {
-            return <Redirect push to="/news" />;
-          }
+      if (this.state.redirect) {
+        return <Redirect push to="/news" />;
+      }
       return (
         <div>
         <Header className="header-container" as='h3' textAlign='center' block>
