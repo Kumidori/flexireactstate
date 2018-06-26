@@ -41,7 +41,7 @@ class Profile extends React.Component {
       sessionStorage.setItem('intrapassword', md5(this.state.pw));
       localStorage.setItem('newslink', this.state.newslink);
       this.setState({redirect: true});
-      window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
+      //window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
     }
 
   
