@@ -10,9 +10,29 @@ body,div,a{
       -ms-hyphens: auto;
           hyphens: auto;
 }
+.ui.pointing.secondary.three.item.subNavi.menu {
+  background-color:  white;
+}
+.card  {
+  margin-bottom: 1em!important;
+}
+.ui.centered.card.intranet,.ui.centered.card.felix {
+  margin-bottom: 0!important;
+}
 .rss-link{
   text-decoration: underline;
 }
+body{
+  background-color:#f0fffe!important;
+}
+body > div,
+body > div > div,
+body > div > div > div.login-form {
+  height: 100%;
+  max-width:100vw;
+  overflow-x:hidden;
+}
+
 .all-center{
     position: fixed;
     top: 30%;
@@ -50,8 +70,16 @@ body,div,a{
 .ui.card {
   width: 100% !important;
 }
-.ui.block.header {
-  background: #7fbfff !important;
+.ui.block.header{
+  background: #00b5ad !important;
+  color:white !important;
+}
+.tab-bottom a{
+  background: #00b5ad !important;
+  color:white !important;
+}
+.tab-bottom .active.item{
+  background-color: #00d1c7!important;
 }
 .header-container{
   position: fixed; /* Set the navbar to fixed position */
@@ -59,9 +87,16 @@ body,div,a{
   width: 100%; /* Full width */
   z-index:999;
 }
+.content {
+  overflow-x: auto;
+}
 .main{
-  margin-top:50px !important;
-  padding-bottom: 50px;
+  margin-top:10px !important;
+  padding-bottom: 75px;
+}
+.main2{
+  margin-top:65px !important;
+  padding-bottom: 75px;
 }
 a {
   color: black !important;
@@ -110,9 +145,6 @@ a {
 }
 .author {
   float: left;
-}
-.ui.form {
-  padding-top: 20%;
 }
 .backIcon {
   position: absolute;

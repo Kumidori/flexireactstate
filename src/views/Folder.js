@@ -39,7 +39,7 @@ const Folder = (props) => (
                 </Message>);
                 console.log(data);
             return (
-                    <div>
+                    <div className="main">
                     {data.Files.map((element)=>(
                         <div>
                             

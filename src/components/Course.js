@@ -6,10 +6,9 @@ function Course(props) {
 
     return (
         <div>
-            <Card className='course' centered>
-                <Card.Content>
-                <Icon name='circle' color={props.color} size='small'/>
-                    {props.name}
+            <Card className='course' centered {...props}>
+                <Card.Content >
+                    {props.children}
                 </Card.Content>
             </Card>
         </div>

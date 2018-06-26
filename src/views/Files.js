@@ -39,7 +39,7 @@ const Files = (props) => (
                 </Message>);
             return (
                 <div>
-                    <div>
+                    <div className="main">
                     {data.Files.map((element)=>(
                         
                         <div>

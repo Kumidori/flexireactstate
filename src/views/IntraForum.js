@@ -24,7 +24,6 @@ query Veranstaltungsnachrichten($id: String) {
         date
         content {
             body
-            id
             authorB
             dateB
         }
@@ -51,8 +50,9 @@ const IntraForum = (props) => (
             return (
                 <div id='forum'>
                     <div className='main'>
-                    {data.Veranstaltungsnachrichten.map((element)=>(
-                        
+                    {data.Veranstaltungsnachrichten.map((element)=>{
+                        console.log(element.content)
+                        return (
                          <Link key={element.id} to={{
                             pathname:`/intracourses/${props.data.Veranstaltungsdetails.id}/post`,
                             state:{
@@ -72,7 +72,7 @@ const IntraForum = (props) => (
                         </Card>
                         </div>
                         </Link>
-                    ))}
+                    )})}
                     </div>
                 </div>
             )

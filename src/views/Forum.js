@@ -64,7 +64,7 @@ const Forum = (props) => (
             }
             return (
                 <div id='forum'>
-                    <div>
+                    <div className="main">
                     {data.Posts.slice(0).reverse().map((element)=>(
                         
                          <Link to={{

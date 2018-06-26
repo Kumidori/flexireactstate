@@ -7,6 +7,8 @@ import TabNaviBottom from '../components/TabNaviBottom';
 import { Link } from 'react-router-dom'
 import loader from '../loader.gif';
 import {Message} from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react'
+
 
 const GET_News = gql`
 query{
@@ -36,17 +38,21 @@ const News = () => (
             if (error) return (
                 <div>
                     <HeaderBlock title="News" headerIcon='rss'/>
+                    <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                    <Grid.Column style={{ maxWidth: 450 }}>
                     <Message className='main'>
                         <p> News konnten nicht geladen werden, haben sie die RSS Feed URL korrekt eingegeben?</p>
                     </Message>  
                     <Link to={`/`}><button class="ui button">Zurück zum Login</button></Link>
+                    </Grid.Column>
+                    </Grid>
                     <TabNaviBottom activeItem="news"/>
                 </div>
             );
             return (
                 <div>
                     <HeaderBlock title="News" headerIcon='rss'/>
-                    <div className="main">
+                    <div className="main2">
                         {data.News.map((element,index)=>(
                             <SingleNews key={index} title={element.title} message={element.message} date={element.date} time={element.time}/>
                         ))}

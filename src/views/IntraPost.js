@@ -14,6 +14,7 @@ var headline = {
 const IntraPost = (props) => (
 (
     <div id='postings' className='main'>
+     {console.log(props)}
         {props.location.state.content.map((element, counter = 0) => (
             <div>
                 {

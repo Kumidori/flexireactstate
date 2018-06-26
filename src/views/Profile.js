@@ -1,10 +1,10 @@
 import React from 'react';
 import md5 from 'md5';
 import { Redirect } from 'react-router';
-import {Header} from 'semantic-ui-react';
 import HeaderBlock from '../components/Header';
-import {Message} from 'semantic-ui-react';
 import TabNaviBottom from '../components/TabNaviBottom';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import logo from '../logo.jpeg'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -41,38 +41,38 @@ class Profile extends React.Component {
       sessionStorage.setItem('intrapassword', md5(this.state.pw));
       localStorage.setItem('newslink', this.state.newslink);
       this.setState({redirect: true});
-      //window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
+      window.open(`https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=${this.state.value}&password=${this.state.pw}`);
     }
 
   
     render() {
         if (this.state.redirect) {
-            return <Redirect push to="/news" />;
+            return <Redirect push to="/courses" />;
           }
       return (
         <div>
         <HeaderBlock title="Profil" headerIcon='user'/>
-        <form class="ui form" onSubmit={this.handleSubmit} >    
+        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='teal' textAlign='center'>
+          <Image src={logo} /> Log-in to your account
+        </Header>
+        <Form size='large' onSubmit={this.handleSubmit} >    
+        <Segment stacked>
         <Message className='main'>
         HFU Login benutzen!
-        </Message>    
-          <div class="field">
-          <label>Name</label>
-            <input type="text" name="Name" placeholder="Name" value={this.state.value} onChange={this.handleChange} />
-          </div>
-          <div class="field">
-          <label>Passwort</label>
-            <input type="password" name="pw" placeholder="Passwort" value={this.state.pw} onChange={this.handleChange2} />
-          </div>
-          <div class="field">
-          <label>Felix RSS FEED URL</label>
-            <input type="text" name="newslink" placeholder="RSS URL" value={this.state.newslink} onChange={this.handleChange3} />
-          </div>
-          <button class="ui button" type="submit" value="Login">Login</button>
-          <Message className='main'>
+        </Message>
+        <Form.Input fluid icon='user' iconPosition='left' type="text" name="Name" placeholder="Name" value={this.state.value} onChange={this.handleChange} />
+        <Form.Input fluid icon='lock' iconPosition='left' type="password" name="pw" placeholder="Passwort" value={this.state.pw} onChange={this.handleChange2} />
+        <Form.Input fluid icon='rss' iconPosition='left' type="text" name="newslink" placeholder="RSS URL" value={this.state.newslink} onChange={this.handleChange3} />
+        <Button color='teal' fluid size='large' type="submit" value="Login">Login</Button>
+        </Segment> 
+        <Message className='main'>
         Den Link zu Ihrem RSS Feed finden sie <a className="rss-link" href="https://felix.hs-furtwangen.de/auth/HomeSite/2178220068/notifications/0/tab/2">hier</a>
-        </Message> 
-        </form>
+        </Message>
+        </Form>
+        </Grid.Column>
+        </Grid>
         <TabNaviBottom activeItem="profile"/>
         </div>
       );

@@ -24,6 +24,9 @@ query{
 }
 `;
 
+let style = {
+    color: "grey"
+}
 
 const Courses = () => (
     <Query query={GET_COURSES}>
@@ -50,16 +53,21 @@ const Courses = () => (
             return (
                 <div>
                     <HeaderBlock title="Kurse" headerIcon='university'/>
-                    <div className="main">
-                    {data.Kurse.map((element)=>(
-                        <Link key={element.key} to={`/courses/${element.key}/`}>
-                        <Course name={element.displayName} description={element.description} className='felix'/>
-                        </Link>
-                    ))}
-
+                    <div className="main2">
                     {data.Veranstaltungen.map((element)=>(
                         <Link key={element.id} to={`/intracourses/${element.id}/`}>
-                        <Course name={element.name} className='intranet'/>
+                        <Course className='intranet'>
+                        {element.name}
+                        </Course>
+                        </Link>
+                    ))}
+                    <br/>
+                    {data.Kurse.map((element)=>(
+                        <Link key={element.key} to={`/courses/${element.key}/`}>
+                        <Course style={style} description={element.description} className='felix'>
+                        <strong>{element.displayName}</strong>
+                        <em> // Felix Testuser</em>
+                        </Course>
                         </Link>
                     ))}
                     </div>
