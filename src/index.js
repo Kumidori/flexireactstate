@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import App from './App';
 import 'semantic-ui-css/semantic.min.css';
+import registerServiceWorker from './registerServiceWorker';
 
 const client = new ApolloClient({
     uri: 'https://flexigraphql2.herokuapp.com/graphql',
@@ -27,4 +28,4 @@ const ApolloApp = AppComponent => (
 );
 
 render(ApolloApp(App), document.getElementById('root'));
-
+registerServiceWorker();

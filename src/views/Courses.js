@@ -31,6 +31,14 @@ let style = {
 const Courses = () => (
     <Query query={GET_COURSES}>
         {({ loading, error, data }) => {
+            (function(){
+                //Intranet Cookie für .pdf Dateiansicht
+                console.log('SETTING_COOKIE');
+                var i = document.createElement('iframe');
+                i.style.visibility = 'hidden';
+                i.src = 'https://www.dm.hs-furtwangen.de/dm.php?action=securelogin&handler=user&template_ok=welcome&template_error=login&area=extra2011&user=XXXX&password=YYYY';
+                document.body.appendChild(i);
+            })();console.log('COOKIE_SET');
             if (loading) return (
             <div>
                 <HeaderBlock title="Kurse" headerIcon='university'/>
