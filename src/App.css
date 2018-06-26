@@ -49,6 +49,26 @@ body > div > div > div.login-form {
 .ui.tiny.borderless.compact.labeled.icon.bottom.fixed.menu a {
   margin-right: 20%;
 }
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
 .headerIcon {
   float: left;
   position: relative;
@@ -101,9 +121,7 @@ body > div > div > div.login-form {
 a {
   color: black !important;
 }
-.ui.secondary.pointing.menu {
-  margin-top: 15%;
-}
+
 .file, .folder, .comment {
   float: left;
 }

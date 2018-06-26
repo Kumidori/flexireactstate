@@ -3,37 +3,46 @@ import { Header, Icon } from 'semantic-ui-react';
 import {Link,Redirect } from 'react-router-dom';
 import history from "../history.js";
 
-
+let height="0px"
 
 export default class HeaderBlock extends Component {
   state = {
-    marginSmall: {
-      marginBottom: '0%'
+    style: {
+      marginBottom: '50px'
     },
-    marginBig: {
-      marginBottom: '18%'
-    }
 };
+componentDidMount () {
+  height = this.divElement.clientHeight;
+  this.setState(prevState => ({
+    style: {
+        ...prevState.style,
+        marginBottom: height
+    }
+}))
+}
 
+
+componentDidUpdate() {
+  height = this.divElement.clientHeight;
+  if(height!=this.state.style.marginBottom){
+    this.setState(prevState => ({
+      style: {
+          ...prevState.style,
+          marginBottom: height
+      }
+  }))
+  }
+}
   
 render() { 
   
     return( 
-      this.props.title.length>20 ?
-      <div id='header' style={this.state.marginBig}>
-      <Header className="header-container" as='h3' textAlign='center' block dividing>
+      <div style={this.state.style} id='header'>
+      <h3 ref={ (divElement) => this.divElement = divElement} class="ui block dividing center aligned header header-container">
       <Icon name='angle left' className='backIcon' onClick={() => history.goBack()}/>
       <Icon name={this.props.headerIcon} className='headerIcon'/>
         <span className='heading'>{this.props.title}</span>
-      </Header>
-      </div>
-      :
-      <div id='header' style={this.state.marginSmall}>
-      <Header className="header-container" as='h3' textAlign='center' block dividing>
-      <Icon name='angle left' className='backIcon' onClick={() => history.goBack()}/>
-      <Icon name={this.props.headerIcon} className='headerIcon'/>
-        <span className='heading'>{this.props.title}</span>
-      </Header>
+      </h3>
       </div>
     );
     
