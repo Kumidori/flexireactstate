@@ -51,7 +51,6 @@ const IntraForum = (props) => (
                 <div id='forum'>
                     <div className='main'>
                     {data.Veranstaltungsnachrichten.map((element)=>{
-                        console.log(element.content)
                         return (
                          <Link key={element.id} to={{
                             pathname:`/intracourses/${props.data.Veranstaltungsdetails.id}/post`,
